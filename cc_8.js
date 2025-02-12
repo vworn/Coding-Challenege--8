@@ -59,3 +59,16 @@ const filterLargeTransactions = (transactions, filterFunction) => {
 
 // Test case
 console.log(filterLargeTransactions(transactions, amount => amount > 1000)); // Expected output: [1500, 3200, 2500]
+
+// Task 7: Closures - Shopping Cart Tracker
+function createCartTracker() {
+    let total = 0; // Maintain a running total
+    return function(amount) {
+        total += amount;
+        return `Total Cart Value: $${total}`;
+    };
+}
+
+let cart = createCartTracker();
+console.log(cart(20)); // Expected output: "Total Cart Value: $20"
+console.log(cart(35)); // Expected output: "Total Cart Value: $55"
